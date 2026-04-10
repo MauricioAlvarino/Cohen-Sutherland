@@ -1,5 +1,25 @@
 const canvas = document.getElementById("canvas");
 const ctx = canvas.getContext("2d");
+const INSIDE = 0;
+const TOP = 1;
+const BOTTOM = 2;
+const RIGHT = 4;
+const LEFT = 8;
+
+function computeCode(x, y) {
+    let code = INSIDE;
+
+    if (y < ymin) code |= TOP;
+    else if (y > ymax) code |= BOTTOM;
+
+    if (x > xmax) code |= RIGHT;
+    else if (x < xmin) code |= LEFT;
+
+    return code;
+}
+
+// prueba
+console.log(computeCode(50, 50)); // ejemplo
 
 // Viewport
 const xmin = 100;
