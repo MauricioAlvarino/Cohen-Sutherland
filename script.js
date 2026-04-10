@@ -18,8 +18,7 @@ function computeCode(x, y) {
     return code;
 }
 
-// prueba
-console.log(computeCode(50, 50)); // ejemplo
+
 
 // Viewport
 const xmin = 100;
@@ -39,10 +38,19 @@ function dibujarLinea(x1, y1, x2, y2) {
     ctx.lineTo(x2, y2);
     ctx.stroke();
 }
-
+ctx.clearRect(0, 0, canvas.width, canvas.height);
 dibujarViewport();
 dibujarLinea(50, 50, 450, 350);
+// recorte
+let res = cohenSutherland(50, 50, 450, 350);
 
+if (res) {
+    ctx.strokeStyle = "green";
+    ctx.beginPath();
+    ctx.moveTo(res.x1, res.y1);
+    ctx.lineTo(res.x2, res.y2);
+    ctx.stroke();
+}
 dibujarViewport();
 function cohenSutherland(x1, y1, x2, y2) {
 
