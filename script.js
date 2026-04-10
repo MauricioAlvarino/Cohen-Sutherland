@@ -51,7 +51,6 @@ if (res) {
     ctx.lineTo(res.x2, res.y2);
     ctx.stroke();
 }
-dibujarViewport();
 function cohenSutherland(x1, y1, x2, y2) {
 
     let code1 = computeCode(x1, y1);
