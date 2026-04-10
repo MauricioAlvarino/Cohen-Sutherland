@@ -12,4 +12,15 @@ function dibujarViewport() {
     ctx.strokeRect(xmin, ymin, xmax - xmin, ymax - ymin);
 }
 
+function dibujarLinea(x1, y1, x2, y2) {
+    ctx.strokeStyle = "red";
+    ctx.beginPath();
+    ctx.moveTo(x1, y1);
+    ctx.lineTo(x2, y2);
+    ctx.stroke();
+}
+
+dibujarViewport();
+dibujarLinea(50, 50, 450, 350);
+
 dibujarViewport();
